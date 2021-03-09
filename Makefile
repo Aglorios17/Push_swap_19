@@ -6,7 +6,7 @@
 #    By: aglorios <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/20 13:33:12 by aglorios          #+#    #+#              #
-#    Updated: 2020/03/11 14:39:59 by aglorios         ###   ########.fr        #
+#    Updated: 2021/03/09 13:38:54 by aglorios         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,22 +24,22 @@ CC				= gcc -Wall -Wextra -Werror -g  #-fsanitize=address
 RM				= rm -f
 
 LIBFLAGS		= -I ./libft -L ./libft -L . ./libft/*.c
-CHECKER_FLAGS	= -I ./checker_prog/include/ -L
+CHECKER_FLAGS	= -I ./checker_prog/include/ 
 PUSH_SWAP_FLAGS	= -I ./push_swap_prog/include/ -L
 
-all:			libft_all ${NAMECHECKER} ${NAMESWAP}
+all:			libft_all ${NAMECHECKER} #${NAMESWAP}
 $(NAMECHECKER):	${OBJS} 
 				$(CC) $(LIBFLAGS) libft/libft.a $(CHECKER_FLAGS) $(OBJS) -o $@ 
-$(NAMESWAP):	${OBJS2} 
-				$(CC) $(LIBFLAGS) libft/libft.a $(PUSH_SWAP_FLAGS) $(OBJS2) -o $@ 
+#$(NAMESWAP):	${OBJS2} 
+#				$(CC) $(LIBFLAGS) libft/libft.a $(PUSH_SWAP_FLAGS) $(OBJS2) -o $@ 
 
 clean:			libft_clean
 				${RM} ${OBJS}
-				${RM} ${OBJS2}
+#				${RM} ${OBJS2}
 
 fclean:			libft_fclean clean
 				${RM} ${NAMECHECKER}
-				${RM} ${NAMESWAP}
+#				${RM} ${NAMESWAP}
 
 re:				fclean all
 

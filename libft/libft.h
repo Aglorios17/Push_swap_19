@@ -6,7 +6,7 @@
 /*   By: aglorios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/10 12:27:36 by aglorios          #+#    #+#             */
-/*   Updated: 2020/03/04 12:54:10 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/03/09 14:38:40 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,6 @@ char				*ft_strchr_gnlsh(const char *s, int c);
 char				*ft_strdup_gnlsh(const char *s1);
 char				*ft_strjoin_gnlsh(char const *s1, char const *s2);
 size_t				ft_strlen_gnlsh(const char *s);
+void				ft_freetab(char **tabs);
 
 #endif

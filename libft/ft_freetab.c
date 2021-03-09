@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                        :+:      :+:    :+:   */
+/*   ft_freetab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aglorios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/04 12:52:08 by aglorios          #+#    #+#             */
-/*   Updated: 2021/03/09 14:39:46 by aglorios         ###   ########.fr       */
+/*   Created: 2021/03/09 14:36:37 by aglorios          #+#    #+#             */
+/*   Updated: 2021/03/09 14:39:02 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include "../../libft/libft.h"
+#include "libft.h"
 
-typedef	struct	s_check
+void	ft_freetab(char **tabs)
 {
-			int		*arr;
-}				t_check;
+	int a;
 
-t_check			*global_struct(void);
-#endif
+	a = 0;
+	while (tabs[a])
+	{
+		free(tabs[a]);
+		tabs[a] = NULL;
+		a++;
+	}
+	free(tabs);
+	tabs = NULL;
+}
