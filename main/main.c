@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/02 17:57:00 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/31 15:47:53 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	test(t_pile *pile)
 	int	i;
 
 	i = 0;
-	printf("\npile a : ");
+	printf("pile a : ");
 	if (pile->a)
 	{
 		for (loop = 0; loop < pile->arg_nb_a; loop++)
@@ -27,7 +27,9 @@ void	test(t_pile *pile)
 	printf("\npile b : ");
 	if (pile->b)
 	{
-		for (loop = 0; loop < pile->arg_nb_b; loop++)
+		while (pile->b[i])
+			i++;
+		for (loop = 0; loop < i; loop++)
 			printf("%d ", pile->b[loop]);
 	}
 	printf("\n");
@@ -104,6 +106,6 @@ int	main(int ac, char **av)
 	while (i != 0)
 		pile_doublons(pile->a[--i], pile);
 	algo_main(pile);
-//	test(pile);
+	//test(pile);
 	return (0);
 }

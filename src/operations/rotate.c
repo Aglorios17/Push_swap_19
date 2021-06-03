@@ -12,7 +12,7 @@
 
 #include "../../inc/push_swap.h"
 
-int	rot_rot(int *tab)
+int	rot_rot(int *tab, int len)
 {
 	int	i;
 	int	j;
@@ -25,9 +25,7 @@ int	rot_rot(int *tab)
 	temp = ft_tabcpy(NULL, tab);
 	if (!temp)
 		return (0);
-	while (tab[len])
-		len++;
-	while (temp[i])
+	while (i < len)
 	{
 		tab[i++] = temp[j++];
 	}

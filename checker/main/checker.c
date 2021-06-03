@@ -3,35 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
+/*   By: aglorios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 14:29:35 by aglorios          #+#    #+#             */
-/*   Updated: 2021/06/02 18:05:10 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/31 17:35:25 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/checker.h"
-
-void	test_pile(t_pile *pile)
-{
-	int	loop;
-	int	i;
-
-	i = 0;
-	printf("\npile a : ");
-	if (pile->a)
-	{
-		for (loop = 0; loop < pile->arg_nb_a; loop++)
-			printf("%d ", pile->a[loop]);
-	}
-	printf("\npile b : ");
-	if (pile->b)
-	{
-		for (loop = 0; loop < pile->arg_nb_b; loop++)
-			printf("%d ", pile->b[loop]);
-	}
-	printf("\n");
-}
 
 int	main(int ac, char **av)
 {
@@ -60,6 +39,5 @@ int	main(int ac, char **av)
 	while (i != 0)
 		pile_doublons(pile->a[--i], pile);
 	checker_algo(pile);
-	test_pile(pile);
 	return (0);
 }

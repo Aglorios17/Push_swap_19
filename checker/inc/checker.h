@@ -33,23 +33,24 @@ typedef struct s_pile
 int		checker_algo(t_pile *pile);
 void	arg_is_str(char *av, t_pile *pile);
 void	arg_is_str2(t_pile *pile, int b, char **str);
-int		is_sort(int *pile);
+int		is_sort(int *pile, int len);
 void	pile_doublons(int arg, t_pile *pile);
 void	pile_arg(char *arg, t_pile *pile);
 
 /* Operations */
 int		swap(int *tab);
 int		swap_ss(int *tab1, int *tab2);
-int		rotate(int *pile);
-int		rot_rot(int *pile);
-int		rev_rot_rot(int *tab1, int *tab2);
+int		rotate(int *pile, int len);
+int		rot_rot(int *pile, int len);
+int		rev_rot_rot(int *tab1, int *tab2, int len1, int len2);
+int		rev_rot(int *tab1, int *tab2, int len1, int len2);
 int		push_a(t_pile *pile);
 int		push_b(t_pile *pile);
 
 /* Utils */
-int		*ft_tabcpy(int *dest, int *src);
-int		*addfronttab(int *tab, int add);
-int		*ft_addbacktab(int *tab, int add);
+int		*ft_tabcpy(int *dest, int *src, int len);
+int		*addfronttab(int *tab, int add, int len);
+int		*ft_addbacktab(int *tab, int add, int len);
 
 int		get_next_linec(int fd, char **line);
 int		ft_strlen2c(char *str);

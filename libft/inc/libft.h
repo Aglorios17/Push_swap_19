@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 11:35:37 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/02 13:08:25 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/05/20 17:01:48 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,10 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /* Partie perso */
-
 int		ft_ispace(char c);
 void	exit_error(char *error_string);
 size_t	ft_strcpy(char *dest, const char *src);
 int		ft_strcmp(const char *s1, const char *s2);
 void	ft_freetab(char **tabs);
-void	bubble_sort(int *array, int size);
 
 #endif

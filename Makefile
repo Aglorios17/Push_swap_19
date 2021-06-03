@@ -3,15 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+         #
+#    By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/30 12:39:59 by thgillai          #+#    #+#              #
-#    Updated: 2021/06/02 13:10:27 by thgillai         ###   ########.fr        #
+#    Updated: 2021/05/31 15:01:12 by aglorios         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCNAME =	main/main.c main/main2.c src/operations/swap.c src/utils.c \
-			src/operations/rotate.c src/operations/push.c src/utils2.c \
+SRCNAME =	main/main.c main/main2.c src/operations/swap.c src/operations/rotate.c src/operations/push.c src/utils.c \
 			src/algo.c src/algo_3nb.c src/algo_5nb.c \
 
 SRCS	= ${SRCNAME}

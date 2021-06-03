@@ -56,17 +56,17 @@ void	arg_is_str(char *av, t_pile *pile)
 	arg_is_str2(pile, b, str);
 }
 
-int	is_sort(int *pile)
+int	is_sort(int *pile, int len)
 {
 	int	i;
 	int	j;
 
 	i = 0;
 	j = 0;
-	while (pile[i])
+	while (i < len)
 	{
 		j = i;
-		while (pile[j])
+		while (j < len)
 		{
 			if (pile[i] > pile[j])
 				return (-1);
