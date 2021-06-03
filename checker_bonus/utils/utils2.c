@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aglorios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 15:52:35 by shenquin          #+#    #+#             */
-/*   Updated: 2021/05/31 15:31:26 by aglorios         ###   ########.fr       */
+/*   Created: 2021/06/03 12:25:22 by aglorios          #+#    #+#             */
+/*   Updated: 2021/06/03 12:25:24 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	*ft_addbacktab(int *tab, int add, int len)
 	int	i;
 	int	*new_tab;
 
-	printf("add : %i\n", add);
 	new_tab = malloc(sizeof(int *) * (len + 1));
 	i = 0;
 	while (i < len)
@@ -56,10 +55,10 @@ int	*ft_tabcpy(int *dest, int *src, int len)
 	i = 0;
 	if (!src)
 		return (0);
-	dest = malloc(sizeof(int *) * len);
+	dest = malloc(sizeof(int *) * len + 1);
 	if (!dest)
 		return (0);
-	while (i <= len)
+	while (i < len)
 	{
 		dest[i] = src[i];
 		i++;

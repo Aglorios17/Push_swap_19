@@ -6,7 +6,7 @@
 /*   By: aglorios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 14:31:50 by aglorios          #+#    #+#             */
-/*   Updated: 2021/05/31 17:34:02 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/06/03 11:59:22 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 int ft_cmd(t_pile *pile, char *cmd)
 {
 	if (!(ft_strncmp(cmd, "sa", 3)))
-		swap(pile->a);
+		swap(pile->a, pile->arg_nb_a);
 	else if (!(ft_strncmp(cmd, "sb", 3)))
-		swap(pile->b);
+		swap(pile->b, pile->arg_nb_b);
 	else if (!(ft_strncmp(cmd, "ss", 3)))
-		swap_ss(pile->a, pile->b);
+		swap_ss(pile->a, pile->b, pile->arg_nb_a, pile->arg_nb_b);
 	else if (!(ft_strncmp(cmd, "pa", 3)))
 		push_a(pile);
 	else if (!(ft_strncmp(cmd, "pb", 3)))
@@ -62,7 +62,9 @@ void	test(t_pile *pile)
 	printf("\npile b : ");
 	if (pile->b)
 	{
-		for (loop = 0; loop < pile->arg_nb_b; loop++)
+		while (pile->b[i])
+			i++;
+		for (loop = 0; loop < i; loop++)
 			printf("%d ", pile->b[loop]);
 	}
 	printf("\n");
@@ -75,7 +77,7 @@ int	checker_algo(t_pile *pile)
 	cmd = NULL;
 	while (1)
 	{
-		test(pile);
+//		test(pile);
 		if (get_next_linec(0, &cmd) != 0)
 		{
 			if (!ft_cmd(pile, cmd))

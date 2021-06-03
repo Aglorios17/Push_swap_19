@@ -6,7 +6,7 @@
 /*   By: aglorios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/31 14:23:09 by aglorios          #+#    #+#             */
-/*   Updated: 2021/05/31 15:54:53 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/06/03 11:55:30 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	pile_doublons(int arg, t_pile *pile);
 void	pile_arg(char *arg, t_pile *pile);
 
 /* Operations */
-int		swap(int *tab);
-int		swap_ss(int *tab1, int *tab2);
+int		swap(int *tab, int len);
+int		swap_ss(int *tab1, int *tab2, int len1, int len2);
 int		rotate(int *pile, int len);
 int		rot_rot(int *pile, int len);
 int		rev_rot_rot(int *tab1, int *tab2, int len1, int len2);

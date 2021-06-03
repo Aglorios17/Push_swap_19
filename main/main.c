@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/30 13:15:10 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/31 15:47:53 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/06/03 12:40:30 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	test(t_pile *pile)
 	int	i;
 
 	i = 0;
-	printf("pile a : ");
+	printf("\npile a : ");
 	if (pile->a)
 	{
 		for (loop = 0; loop < pile->arg_nb_a; loop++)
@@ -27,9 +27,7 @@ void	test(t_pile *pile)
 	printf("\npile b : ");
 	if (pile->b)
 	{
-		while (pile->b[i])
-			i++;
-		for (loop = 0; loop < i; loop++)
+		for (loop = 0; loop < pile->arg_nb_b; loop++)
 			printf("%d ", pile->b[loop]);
 	}
 	printf("\n");
@@ -49,7 +47,7 @@ void	arg_is_str2(t_pile *pile, int b, char **str)
 	while (b--)
 	{
 		pile->a[j] = ft_atoi(str[i++]);
-		if (pile->a[j] < 0 || pile->a[j++] > 2147483647)
+		if (pile->a[j] < -2147483648 && pile->a[j++] > 2147483647)
 			exit_error("Error\n");
 	}
 	pile->a[j] = 0;
@@ -62,10 +60,12 @@ void	arg_is_str(char *av, t_pile *pile)
 	int		j;
 	int		b;
 	char	**str;
+	int		temp;
 
 	i = 0;
 	j = 0;
 	b = 0;
+	temp = 0;
 	str = ft_split(av, ' ');
 	while (str[b] != NULL)
 		b++;
@@ -73,8 +73,14 @@ void	arg_is_str(char *av, t_pile *pile)
 	{
 		j = 0;
 		while (str[i++][j])
-			if (!ft_isdigit(str[i][j++]))
-				exit_error("Error\n");
+		{
+			if (!ft_isdigit(str[i][j++])) ////////////////////// neg !!!!!!!!! ??
+				exit_error("Error1\n");
+//			temp = ft_atoi(&str[i][j++]); ///////////////////// idee
+//			printf("temp : %i\n", temp);
+//			if (temp < -2147483648 && temp > 2147483647)
+//				exit_error("Error\n");
+		}
 	}
 	arg_is_str2(pile, b, str);
 }
@@ -106,6 +112,6 @@ int	main(int ac, char **av)
 	while (i != 0)
 		pile_doublons(pile->a[--i], pile);
 	algo_main(pile);
-	//test(pile);
+//	test(pile);
 	return (0);
 }

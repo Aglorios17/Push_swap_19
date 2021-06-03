@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aglorios <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/20 14:43:48 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/31 15:24:33 by aglorios         ###   ########.fr       */
+/*   Created: 2021/06/03 12:24:51 by aglorios          #+#    #+#             */
+/*   Updated: 2021/06/03 12:24:54 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	rot_rot(int *tab, int len)
 	temp = ft_tabcpy(NULL, tab, len);
 	if (!temp)
 		return (0);
-	while (i <= len)
+	while (i < len)
 	{
 		tab[i++] = temp[j++];
 	}
@@ -49,7 +49,7 @@ int	rotate(int *tab, int len)
 	temp = ft_tabcpy(NULL, tab, len);
 	if (!temp)
 		return (0);
-	while (i <= len)
+	while (i < len)
 	{
 		tab[j++] = temp[i++];
 	}

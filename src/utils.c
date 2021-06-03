@@ -3,26 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:52:35 by shenquin          #+#    #+#             */
-/*   Updated: 2021/05/31 14:15:29 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/03 12:09:46 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	*ft_addbacktab(int *tab, int add)
+int	*ft_addbacktab(int *tab, int add, int len)
 {
 	int	i;
 	int	*new_tab;
 
+	new_tab = malloc(sizeof(int *) * (len + 1));
 	i = 0;
-	while (tab && tab[i])
-		i++;
-	new_tab = malloc(sizeof(int *) * (i + 1));
-	i = 0;
-	while (tab && tab[i])
+	while (i < len)
 	{
 		new_tab[i] = tab[i];
 		i++;
@@ -33,18 +30,15 @@ int	*ft_addbacktab(int *tab, int add)
 	return (new_tab);
 }
 
-int	*addfronttab(int *tab, int add)
+int	*addfronttab(int *tab, int add, int len)
 {
 	int	i;
 	int	*new_tab;
 
-	i = 0;
-	while (tab && tab[i])
-		i++;
-	new_tab = malloc(sizeof(int *) * (i + 1));
+	new_tab = malloc(sizeof(int *) * (len + 1));
 	i = 0;
 	new_tab[0] = add;
-	while (tab && tab[i])
+	while (i < len)
 	{
 		new_tab[i + 1] = tab[i];
 		i++;
@@ -54,21 +48,17 @@ int	*addfronttab(int *tab, int add)
 	return (new_tab);
 }
 
-int	*ft_tabcpy(int *dest, int *src)
+int	*ft_tabcpy(int *dest, int *src, int len)
 {
-	size_t	i;
-	size_t	len;
+	int	i;
 
 	i = 0;
-	len = 0;
 	if (!src)
 		return (0);
-	while (src[len])
-		len++;
-	dest = malloc(sizeof(int *) * len);
+	dest = malloc(sizeof(int *) * len + 1);
 	if (!dest)
 		return (0);
-	while (src[i])
+	while (i < len)
 	{
 		dest[i] = src[i];
 		i++;
@@ -108,3 +98,5 @@ int	ft_max(int *pile)
 	}
 	return (max);
 }
+
+

@@ -6,23 +6,21 @@
 /*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:43:48 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/27 16:39:30 by shenquin         ###   ########.fr       */
+/*   Updated: 2021/06/03 12:14:06 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../inc/push_swap.h"
 
 int	rot_rot(int *tab, int len)
 {
 	int	i;
 	int	j;
-	int	len;
 	int	*temp;
 
 	i = 1;
 	j = 0;
-	len = 0;
-	temp = ft_tabcpy(NULL, tab);
+	temp = ft_tabcpy(NULL, tab, len);
 	if (!temp)
 		return (0);
 	while (i < len)
@@ -33,29 +31,25 @@ int	rot_rot(int *tab, int len)
 	return (1);
 }
 
-int	rev_rot_rot(int *tab1, int *tab2)
+int	rev_rot_rot(int *tab1, int *tab2, int len1, int len2)
 {
-	if (!rotate(tab1) || !rotate(tab2))
+	if (!rotate(tab1, len1) || !rotate(tab2, len2))
 		return (0);
 	return (1);
 }
 
-int	rotate(int *tab)
+int	rotate(int *tab, int len)
 {
 	int	i;
 	int	j;
-	int	len;
 	int	*temp;
 
 	i = 1;
 	j = 0;
-	len = 0;
-	temp = ft_tabcpy(NULL, tab);
+	temp = ft_tabcpy(NULL, tab, len);
 	if (!temp)
 		return (0);
-	while (tab[len])
-		len++;
-	while (temp[i])
+	while (i < len)
 	{
 		tab[j++] = temp[i++];
 	}
@@ -63,9 +57,9 @@ int	rotate(int *tab)
 	return (1);
 }
 
-int	rev_rot(int *tab1, int *tab2)
+int	rev_rot(int *tab1, int *tab2, int len1, int len2)
 {
-	if (!rot_rot(tab1) || !rot_rot(tab2))
+	if (!rot_rot(tab1, len1) || !rot_rot(tab2, len2))
 		return (0);
 	return (1);
 }

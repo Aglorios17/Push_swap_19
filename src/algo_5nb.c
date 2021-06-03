@@ -6,7 +6,7 @@
 /*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 18:19:44 by thgillai          #+#    #+#             */
-/*   Updated: 2021/05/31 14:16:24 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/03 12:22:40 by aglorios         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	find_min_5nb(t_pile *pile)
 
 	min = 0;
 	i = 0;
-	while (pile->a[i])
+	while (i < pile->arg_nb_a)
 	{
 		if (pile->a[i] > pile->b[0])
 		{
@@ -63,7 +63,7 @@ int	ft_resort_tab(t_pile *pile)
 	i = 0;
 	min = pile->a[0];
 	row = 0;
-	while (pile->a[i])
+	while (i < pile->arg_nb_a)
 	{
 		if (min > pile->a[i])
 		{
@@ -76,16 +76,16 @@ int	ft_resort_tab(t_pile *pile)
 	{
 		while (row--)
 		{
+			rotate(pile->a, pile->arg_nb_a);
 			ft_putstr_fd("ra\n", 1);
-			rotate(pile->a);
 		}
 	}
 	if (row > 2)
 	{
 		while (!(pile->a[0] == min))
 		{
+			rot_rot(pile->a, pile->arg_nb_a);
 			ft_putstr_fd("rra\n", 1);
-			rot_rot(pile->a);
 		}
 	}
 	return (0);
@@ -111,7 +111,7 @@ int	algo_5nb(t_pile *pile)
 	}
 	if (pile->arg_nb_b > 1 && pile->b[0] > pile->b[1])
 	{
-		swap(pile->b);
+		swap(pile->b, pile->arg_nb_b);
 		ft_putstr_fd("sb\n", 1);
 	}
 	algo_3nba(pile->a, 3);
@@ -120,12 +120,12 @@ int	algo_5nb(t_pile *pile)
 		row = find_min_5nb(pile);
 		if (row == 1)
 		{
-			rotate(pile->a);
+			rotate(pile->a, pile->arg_nb_a);
 			ft_putstr_fd("ra\n", 1);
 		}
 		else if (row == 2 && pile->arg_nb_a == 3)
 		{
-			rot_rot(pile->a);
+			rot_rot(pile->a, pile->arg_nb_a);
 			ft_putstr_fd("rra\n", 1);
 		}
 		else if (row == 0 && pile->arg_nb_a == 4)
@@ -136,13 +136,13 @@ int	algo_5nb(t_pile *pile)
 		}
 		else if (row == 2 && pile->arg_nb_a == 4)
 		{
-			rot_rot(pile->a);
-			rot_rot(pile->a);
+			rot_rot(pile->a, pile->arg_nb_a);
+			rot_rot(pile->a, pile->arg_nb_a);
 			ft_putstr_fd("rra\nrra\n", 1);
 		}
 		else if (row == 3 && pile->arg_nb_a == 4)
 		{
-			rot_rot(pile->a);
+			rot_rot(pile->a, pile->arg_nb_a);
 			ft_putstr_fd("rra\n", 1);
 		}
 		push_a(pile);

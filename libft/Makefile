@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+         #
+#    By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/15 13:17:14 by thgillai          #+#    #+#              #
-#    Updated: 2021/05/20 17:05:40 by thgillai         ###   ########.fr        #
+#    Updated: 2021/06/01 13:35:17 by thgillai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRCS =		atoi.c strlen.c isalpha.c isdigit.c strchr.c putstr_fd.c \
 			lstnew.c lstadd_front.c lstsize.c lstlast.c listadd_back.c \
 			lstdelone.c lstclear.c lstiter.c lstmap.c strtrim.c itoa.c \
 			strmapi.c split.c ispace.c strcpy.c exit_error.c strcmp.c \
+			bubble_sort.c \
 			../get_next_line/get_next_line.c freetab.c \
 			../get_next_line/get_next_line_utils.c \
 			../get_next_line/norme_file.c \
