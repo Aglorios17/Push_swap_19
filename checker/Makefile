@@ -3,22 +3,29 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+         #
+#    By: aglorios <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/04/30 12:39:59 by thgillai          #+#    #+#              #
-#    Updated: 2021/06/02 13:10:27 by thgillai         ###   ########.fr        #
+#    Created: 2021/05/31 15:45:31 by aglorios          #+#    #+#              #
+#    Updated: 2021/05/31 15:57:22 by aglorios         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCNAME =	main/main.c main/main2.c src/operations/swap.c src/utils.c \
-			src/operations/rotate.c src/operations/push.c src/utils2.c \
-			src/algo.c src/algo_3nb.c src/algo_5nb.c \
+SRCNAME =	main/checker.c \
+			main/checker_algo.c \
+			utils/utils.c \
+			utils/utils2.c \
+			operations/push.c \
+			operations/rotate.c \
+			operations/swap.c \
+			get_next_line/get_next_line.c \
+			get_next_line/get_next_line_utils.c \
+			get_next_line/norme_file.c
 
 SRCS	= ${SRCNAME}
 
 OBJS	= ${SRCS:.c=.o}
 
-NAME	= push_swap
+NAME	= checker
 
 CC		= gcc -g -fsanitize=address
 RM		= rm -f
