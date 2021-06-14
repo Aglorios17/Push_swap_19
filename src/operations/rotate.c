@@ -6,7 +6,7 @@
 /*   By: shenquin <shenquin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 14:43:48 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/03 12:14:06 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/06/10 14:51:59 by shenquin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	rot_rot(int *tab, int len)
 		tab[i++] = temp[j++];
 	}
 	tab[0] = temp[len - 1];
+	free(temp);
 	return (1);
 }
 
@@ -54,6 +55,7 @@ int	rotate(int *tab, int len)
 		tab[j++] = temp[i++];
 	}
 	tab[j] = temp[0];
+	free(temp);
 	return (1);
 }
 

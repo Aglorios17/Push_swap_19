@@ -6,15 +6,34 @@
 /*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 16:02:36 by thgillai          #+#    #+#             */
-/*   Updated: 2021/06/02 17:00:31 by thgillai         ###   ########.fr       */
+/*   Updated: 2021/06/12 13:57:44 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
+int	find_min_5nb(t_pile *pile)
+{
+	int	i;
+	int	min;
+
+	min = 0;
+	i = 0;
+	while (i < pile->arg_nb_a)
+	{
+		if (pile->a[i] > pile->b[0])
+		{
+			min = i;
+			break ;
+		}
+		i++;
+	}	
+	return (min);
+}
+
 int	ft_row(int *tab, int find)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tab[i])
@@ -28,9 +47,9 @@ int	ft_row(int *tab, int find)
 
 int	*tabncpy(int *src, int start, int end, int len)
 {
-	int		i;
-	int		a;
-	int		*dest;
+	int	i;
+	int	a;
+	int	*dest;
 
 	dest = 0;
 	a = 0;
@@ -54,7 +73,7 @@ int	*tabncpy(int *src, int start, int end, int len)
 
 int	occurence(int *tab, int nb, int len)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < len)

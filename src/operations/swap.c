@@ -22,10 +22,8 @@ int	swap_ss(int *tab1, int *tab2, int len1, int len2)
 int	swap(int *tab, int len)
 {
 	int	tmp;
-	int	i;
 
 	tmp = 0;
-	i = 0;
 	if (len < 1)
 		return (0);
 	tmp = tab[0];

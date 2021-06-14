@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thgillai <thgillai@student.s19.be>         +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 15:52:35 by shenquin          #+#    #+#             */
-/*   Updated: 2021/06/03 12:09:46 by aglorios         ###   ########.fr       */
+/*   Updated: 2021/06/10 20:12:53 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ int	*ft_addbacktab(int *tab, int add, int len)
 		new_tab[i] = tab[i];
 		i++;
 	}
+	free(tab);
 	new_tab[i] = add;
 	new_tab[i + 1] = 0;
-	free(tab);
 	return (new_tab);
 }
 
@@ -83,14 +83,14 @@ int	ft_min(int *pile)
 	return (min);
 }
 
-int	ft_max(int *pile)
+int	ft_max(int *pile, int arg_nb)
 {
 	int	i;
 	int	max;
 
 	i = 0;
 	max = pile[0];
-	while (pile[i])
+	while (i < arg_nb)
 	{
 		if (max < pile[i])
 			max = pile[i];
@@ -98,5 +98,3 @@ int	ft_max(int *pile)
 	}
 	return (max);
 }
-
-

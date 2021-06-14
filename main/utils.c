@@ -3,58 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aglorios <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thgillai <thgillai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/31 15:19:47 by aglorios          #+#    #+#             */
-/*   Updated: 2021/06/03 11:39:51 by aglorios         ###   ########.fr       */
+/*   Created: 2021/05/27 16:38:58 by shenquin          #+#    #+#             */
+/*   Updated: 2021/06/10 19:50:23 by thgillai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/checker.h"
-
-void	arg_is_str2(t_pile *pile, int b, char **str)
-{
-	int	j;
-	int	i;
-
-	pile->a = malloc(sizeof (int *) * b);
-	if (!pile->a)
-		exit_error("Error\n");
-	j = 0;
-	i = 0;
-	pile->arg_nb_a = b;
-	while (b--)
-	{
-		pile->a[j] = ft_atoi(str[i++]);
-		if (pile->a[j] < 0 || pile->a[j++] > 2147483647)
-			exit_error("Error\n");
-	}
-	pile->a[j] = 0;
-	ft_freetab(str);
-}
-
-void	arg_is_str(char *av, t_pile *pile)
-{
-	int		i;
-	int		j;
-	int		b;
-	char	**str;
-
-	i = 0;
-	j = 0;
-	b = 0;
-	str = ft_split(av, ' ');
-	while (str[b] != NULL)
-		b++;
-	while (i < (b - 1) && str[i])
-	{
-		j = 0;
-		while (str[i++][j])
-			if (!ft_isdigit(str[i][j++]))
-				exit_error("Error\n");
-	}
-	arg_is_str2(pile, b, str);
-}
+#include "../inc/push_swap.h"
 
 int	is_sort(int *pile, int len)
 {
@@ -101,12 +57,39 @@ void	pile_arg(char *arg, t_pile *pile)
 	j = 0;
 	while (arg[j])
 	{
-		if (!ft_isdigit(arg[j]))
+		if (!ft_isdigit(arg[j]) && (arg[j] != '-' && arg[j] != '+'))
 			exit_error("Error\n");
 		j++;
 	}
 	pile->a[pile->arg_nb_a] = ft_atoi(arg);
-	if (pile->a[pile->arg_nb_a] < 0 || pile->a[pile->arg_nb_a] > 2147483647)
-		exit_error("Error\n");
+	if (pile->a[pile->arg_nb_a] < -2147483648
+		&& pile->a[pile->arg_nb_a] > 2147483647)
+		exit_error("Error5\n");
 	pile->arg_nb_a++;
+}
+
+void	free_struct(t_pile *pile)
+{
+	free(pile->a);
+	free(pile->b);
+}
+
+int	arg_to_pile(int ac, char **av, t_pile *pile)
+{
+	if (ac == 2)
+	{
+		arg_is_str(av[1], pile);
+		pile->count_arg = pile->arg_nb_a - 1;
+	}
+	else
+	{
+		pile->a = malloc(sizeof(int *) * ac);
+		if (!pile->a)
+			return (0);
+		while (pile->count_arg < ac)
+			pile_arg(av[pile->count_arg++], pile);
+		pile->count_arg -= 1;
+		pile->a[pile->count_arg] = 0;
+	}
+	return (1);
 }
